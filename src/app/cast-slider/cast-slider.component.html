@@ -1,0 +1,13 @@
+<div class="slider_container">
+  <div *ngFor="let cast of credits.slice(0, maxCast)" class="slider_card">
+    <div class="slider_image">
+      <a routerLink="#">
+        <img *ngIf="castImage" src="{{ castImage + cast.profile_path }}"
+      /></a>
+    </div>
+    <div class="slider_content">
+      <h5>{{ cast.original_name }}</h5>
+      <p>{{ cast.character }}</p>
+    </div>
+  </div>
+</div>

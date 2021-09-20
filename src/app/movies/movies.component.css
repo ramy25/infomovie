@@ -1,0 +1,15 @@
+.showcase_slider {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.mainFlex {
+  display: flex;
+}
+
+.mainFlex .main_content {
+  padding-right: 0;
+  padding-left: 30px;
+}

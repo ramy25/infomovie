@@ -1,0 +1,17 @@
+<div class="slider_container">
+  <div *ngFor="let recomm of recommendations" class="slider_card_recomm">
+    <div class="slider_image">
+      <a routerLink="/{{ type }}/{{ recomm.id }}">
+        <img
+          *ngIf="recommendationsImage"
+          src="{{ recommendationsImage + recomm.backdrop_path }}"
+      /></a>
+    </div>
+    <div class="slider_content">
+      <p class="flex">
+        <span>{{ recomm.name ? recomm.name : recomm.title }}</span
+        ><span>{{ recomm.vote_average | number: "1.0-2" }}</span>
+      </p>
+    </div>
+  </div>
+</div>

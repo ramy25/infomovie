@@ -1,0 +1,25 @@
+<div class="section_box">
+  <h2>What's Popular</h2>
+  <button (click)="showMovieOrTv = true">Movies</button>
+  <button (click)="showMovieOrTv = false">Tv Series</button>
+  <div *ngIf="movies && showMovieOrTv">
+    <div class="slider_container">
+      <div *ngFor="let movie of movies" class="slider_card">
+        <app-movie-card
+          [movie]="movie"
+          [posterImage]="posterImage"
+        ></app-movie-card>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="tvs && !showMovieOrTv">
+    <div class="slider_container">
+      <div *ngFor="let tv of tvs" class="slider_card">
+        <app-movie-card
+          [movie]="tv"
+          [posterImage]="posterImage"
+        ></app-movie-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="mainWidth">
+  <div class="section_box">
+    <h1>Movies</h1>
+  </div>
+  <div class="mainFlex">
+    <div class="sidebar_right">
+      <div class="section_box">
+        <h3>sidebar stuff</h3>
+      </div>
+    </div>
+    <div class="main_content content_right">
+      <div *ngIf="movies.length">
+        <div class="section_box">
+          <div
+            class="search-results"
+            infinite-scroll
+            [infiniteScrollDistance]="scrollDistance"
+            [infiniteScrollThrottle]="throttle"
+            (scrolled)="onScrollDown()"
+          >
+            <div *ngFor="let i of movies" class="showcase_slider">
+              <div *ngFor="let movie of i" class="slider_card">
+                <div class="slider_image">
+                  <a routerLink="/movie/{{ movie.id }}">
+                    <img
+                      *ngIf="posterImage"
+                      src="{{ posterImage + movie.poster_path }}"
+                  /></a>
+                </div>
+                <div class="slider_content">
+                  <div
+                    class="slider_vote"
+                    [ngClass]="{
+                      red_outline: movie.vote_average < 5,
+                      yellow_outline:
+                        movie.vote_average >= 5 && movie.vote_average < 7,
+                      green_outline: movie.vote_average >= 7
+                    }"
+                  >
+                    {{ movie.vote_average }}
+                  </div>
+                  <h3>{{ movie.title ? movie.title : movie.name }}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

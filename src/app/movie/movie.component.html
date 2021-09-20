@@ -1,0 +1,63 @@
+<div *ngIf="movie">
+  <div
+    *ngIf="backdrop"
+    class="single_hero"
+    [ngStyle]="{
+      'background-image': 'url(' + backdrop + movie.backdrop_path + ')'
+    }"
+  >
+    <div class="single_hero_overlay">
+      <div class="single_hero_inner mainWidth">
+        <div class="single_hero_left">
+          <img
+            *ngIf="posterImage"
+            src="{{ posterImage + movie.poster_path }}"
+            alt="{{ movie.title }}"
+          />
+        </div>
+        <div class="single_hero_right">
+          <div class="single_title">
+            <h1>{{ movie.title }} ({{ movie.release_date | date: "yyyy" }})</h1>
+            <p class="single_genre">
+              <a *ngFor="let genre of movie.genres">{{ genre.name }} - </a
+              ><span>(runtime: {{ movie.runtime }})</span>
+            </p>
+          </div>
+          <div class="single_actions"></div>
+          <div class="single_info">
+            <h2>Plot</h2>
+            <p>{{ movie.overview }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="single_content mainWidth">
+    <div class="main_content">
+      <div class="section_box">
+        <h3>Top Cast</h3>
+        <app-cast-slider
+          [credits]="movie.credits.cast"
+          [castImage]="castImage"
+        ></app-cast-slider>
+        <h3>Full Cast & Crew (PENDING)</h3>
+      </div>
+      <div class="section_box">
+        <h3>Media(PENDING)</h3>
+      </div>
+      <div class="section_box">
+        <h3>Recommendations</h3>
+        <app-recommendations-slider
+          [type]="'movie'"
+          [recommendations]="movie.recommendations.results"
+          [recommendationsImage]="recommendationsImage"
+        ></app-recommendations-slider>
+      </div>
+    </div>
+    <div class="sidebar_right">
+      <div class="section_box">
+        <h3>sidebar stuff</h3>
+      </div>
+    </div>
+  </div>
+</div>

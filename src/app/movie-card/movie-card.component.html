@@ -1,0 +1,18 @@
+<div class="slider_image">
+  <a routerLink="/{{ tvOrMovie }}/{{ movie.id }}">
+    <img *ngIf="posterImage" src="{{ posterImage + movie.poster_path }}"
+  /></a>
+</div>
+<div class="slider_content">
+  <div
+    class="slider_vote"
+    [ngClass]="{
+      red_outline: movie.vote_average < 5,
+      yellow_outline: movie.vote_average >= 5 && movie.vote_average < 7,
+      green_outline: movie.vote_average >= 7
+    }"
+  >
+    {{ movie.vote_average }}
+  </div>
+  <h3>{{ movie.title ? movie.title : movie.name }}</h3>
+</div>

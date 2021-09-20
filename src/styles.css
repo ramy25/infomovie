@@ -1,1 +1,264 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --main-padding-margin: 20px;
+  --mainWidth: 1400px;
+  --showcaseColumns: 5;
+  --showcaseColumnsPadding: 30px;
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font: 62.5%/1.5 "Lucida Grande", "Lucida Sans", Tahoma, Verdana, sans-serif;
+  color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 20px;
+}
+h1 {
+  font-size: 2.4em;
+}
+
+h2 {
+  font-size: 2.2em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+h4 {
+  font-size: 1.8em;
+}
+
+h5 {
+  font-size: 1.6em;
+}
+
+p {
+  font-size: 1.4em;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(163, 157, 157, 0.1);
+  box-shadow: inset 0 0 6px rgba(163, 157, 157, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.44, rgb(122, 153, 217)),
+    color-stop(0.72, rgb(73, 125, 189)),
+    color-stop(0.86, rgb(28, 58, 148))
+  );
+}
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+.flex {
+  display: flex;
+}
+
+.mainWidth {
+  max-width: var(--mainWidth);
+  margin: 0 auto;
+  padding: 0 var(--main-padding-margin);
+}
+
+.section_box {
+  padding: var(--main-padding-margin) 0;
+  width: 100%;
+  display: block;
+}
+
+.single_content .section_box {
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.slider_container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding-top: var(--main-padding-margin);
+  padding-bottom: var(--main-padding-margin);
+  overflow-x: scroll;
+  margin-bottom: var(--main-padding-margin);
+}
+
+.slider_card {
+  width: 150px;
+  min-width: 150px;
+  position: relative;
+  overflow: hidden;
+  margin-right: var(--main-padding-margin);
+}
+
+.slider_image {
+  width: 100%;
+  height: calc(150px * 1.5);
+  overflow: hidden;
+}
+
+.slider_image img {
+  height: 100%;
+  width: 100%;
+}
+
+.slider_content {
+  position: relative;
+  padding-top: 10px;
+}
+
+.slider_content h5 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.slider_vote {
+  position: absolute;
+  top: -25px;
+  right: 5px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  padding: 8px;
+  font-weight: bold;
+  border: 3px solid transparent;
+  min-width: 38px;
+  min-height: 38px;
+  text-align: center;
+}
+
+.slider_vote.green_outline {
+  border: 3px solid green;
+}
+.slider_vote.red_outline {
+  border: 3px solid red;
+}
+.slider_vote.yellow_outline {
+  border: 3px solid yellow;
+}
+
+.single_content {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.sidebar_right {
+  flex: 0 0 250px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main_content {
+  display: flex;
+  flex: 1 0 auto;
+  width: calc(100vw - (2 * var(--main-padding-margin)) - 250px);
+  max-width: calc(var(--mainWidth) - (2 * var(--main-padding-margin)) - 250px);
+  padding-right: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  border: 1px solid #d7d7d7;
+  background-color: #fff;
+  margin-bottom: var(--main-padding-margin);
+}
+
+.season.card {
+  border: 1px solid #d7d7d7;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.single_hero {
+  display: flex;
+  background-position: right -200px top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url();
+}
+
+.single_hero * {
+  color: #fff;
+}
+
+.single_hero_left {
+  display: flex;
+  min-width: 300px;
+}
+.single_hero_right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: center;
+  box-sizing: border-box;
+  padding-left: 40px;
+}
+
+.single_hero_overlay {
+  display: flex;
+  background-image: linear-gradient(
+    to right,
+    rgba(4.31%, 10.2%, 11.37%, 1) 150px,
+    rgba(4.31%, 10.2%, 11.37%, 0.84) 100%
+  );
+  width: 100%;
+}
+
+.single_hero_inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.slider_image {
+  height: auto;
+}
+
+.showcase_slider .slider_card {
+  flex: 1 1 18%;
+}

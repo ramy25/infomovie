@@ -1,0 +1,93 @@
+<div *ngIf="tv">
+  <div
+    *ngIf="backdrop"
+    class="single_hero"
+    [ngStyle]="{
+      'background-image': 'url(' + backdrop + tv.backdrop_path + ')'
+    }"
+  >
+    <div class="single_hero_overlay">
+      <div class="single_hero_inner mainWidth">
+        <div class="single_hero_left">
+          <img
+            *ngIf="posterImage"
+            src="{{ posterImage + tv.poster_path }}"
+            alt="{{ tv.name }}"
+          />
+        </div>
+        <div class="single_hero_right">
+          <div class="single_title">
+            <h1>{{ tv.name }} ({{ tv.first_air_date | date: "yyyy" }})</h1>
+            <p class="single_genre">
+              <a *ngFor="let genre of tv.genres">{{ genre.name }} - </a
+              ><span>(runtime: {{ tv.episode_run_time[0] }})</span>
+            </p>
+          </div>
+          <div class="single_actions"></div>
+          <div class="single_info">
+            <h2>Plot</h2>
+            <p>{{ tv.overview }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="single_content mainWidth">
+    <div class="main_content">
+      <div class="section_box">
+        <h3>Series Cast</h3>
+        <app-cast-slider
+          [credits]="tv.credits.cast"
+          [castImage]="castImage"
+        ></app-cast-slider>
+        <h3>Full Cast & Crew (PENDING)</h3>
+      </div>
+      <div class="section_box">
+        <h3>Current Season</h3>
+        <div class="season card">
+          <div class="flex">
+            <a class="season_image" routerLink="#"
+              ><img
+                *ngIf="seasonImage"
+                [src]="
+                  tv.seasons[tv.seasons.length - 1].poster_path
+                    ? seasonImage +
+                      tv.seasons[tv.seasons.length - 1].poster_path
+                    : seasonImage + tv.backdrop_path
+                "
+                alt="{{ tv.name }}"
+              />
+            </a>
+            <div class="content">
+              <div>
+                <h2>{{ tv.seasons[tv.seasons.length - 1].name }}</h2>
+                <h5>
+                  {{ tv.seasons[tv.seasons.length - 1].air_date }} |
+                  {{ tv.seasons[tv.seasons.length - 1].episode_count }} Episodes
+                </h5>
+                <p>{{ tv.seasons[tv.seasons.length - 1].overview }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3>View All Seasons (PENDING)</h3>
+      </div>
+      <div class="section_box">
+        <h3>Media(PENDING)</h3>
+      </div>
+      <div class="section_box">
+        <h3>Recommendations</h3>
+        <app-recommendations-slider
+          [type]="'tv'"
+          [recommendations]="tv.recommendations.results"
+          [recommendationsImage]="recommendationsImage"
+        ></app-recommendations-slider>
+      </div>
+    </div>
+    <div class="sidebar_right">
+      <div class="section_box">
+        <h3>sidebar stuff</h3>
+      </div>
+    </div>
+  </div>
+</div>

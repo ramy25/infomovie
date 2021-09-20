@@ -1,0 +1,25 @@
+<div class="section_box">
+  <h2>What's Trending</h2>
+  <button (click)="dayOrWeek = true">Today</button>
+  <button (click)="dayOrWeek = false">This Week</button>
+  <div *ngIf="trendingDay && dayOrWeek">
+    <div class="slider_container">
+      <div *ngFor="let movie of trendingDay" class="slider_card">
+        <app-movie-card
+          [movie]="movie"
+          [posterImage]="posterImage"
+        ></app-movie-card>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="trendingWeek && !dayOrWeek">
+    <div class="slider_container">
+      <div *ngFor="let movie of trendingWeek" class="slider_card">
+        <app-movie-card
+          [movie]="movie"
+          [posterImage]="posterImage"
+        ></app-movie-card>
+      </div>
+    </div>
+  </div>
+</div>
